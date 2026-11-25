@@ -16,11 +16,14 @@
 
 ## 담당 파트 (유동호)
 
-- **하트비트 연결 상태 확인**
-  - 라즈베리파이 → 서버 하트비트 송신: `RaspberryPi/dual_camera_server.py` (`heartbeat_worker`), 테스트용 `heartbeat_test_pi.py`
-  - 수신 측 5초 무수신 시 연결 끊김 판정: `WinForms/MainForm.cs` (`CheckHeartbeatTimeout`), `MFC/MainFrame.cpp` (`OnHeartbeatReceived`)
-- **라즈베리파이 제어 코드 병합**: LED 제어 클래스 작성, 팀원 제어 코드 병합, 부저 동작 시 메인 루프가 멈추지 않도록 스레드 적용 (`RaspberryPi/tire_line_hardware.py`)
-- **MFC 채팅 연동**: C# 서버와 연동하는 MFC 채팅 화면 (`MFC/Pages/ChatHandoverPage.cpp`)
+> 통합 과정에서 팀원 코드와 합쳐져, 아래 경로는 해당 기능이 최종적으로 들어 있는 위치입니다.
+
+- **하트비트 연결 상태 확인**: 라즈베리파이 하트비트 송신(Python)과 MFC·C# 수신 구조를 구현하고, 5초 무수신 시 연결 끊김으로 판정
+  - 관련 위치: `heartbeat_test_pi.py`, `RaspberryPi/dual_camera_server.py`, `WinForms/MainForm.cs`, `MFC/MainFrame.cpp`
+- **라즈베리파이 제어 코드 병합**: LED 제어 클래스 작성, 팀원 제어 코드 병합, 부저 동작 시 메인 루프 정지를 막기 위한 스레드 적용
+  - 관련 위치: `RaspberryPi/tire_line_hardware.py`
+- **MFC 채팅 연동**: 기존 C# 서버와 연동하는 MFC 채팅 화면 구현
+  - 관련 위치: `MFC/Pages/ChatHandoverPage.cpp`
 
 ## 실행
 
